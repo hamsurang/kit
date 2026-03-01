@@ -1,6 +1,6 @@
 # Plugin Categories
 
-hamkit organizes plugins into 10 categories. Choose the category that best describes your plugin's primary purpose.
+kit organizes plugins into 10 categories. Choose the category that best describes your plugin's primary purpose.
 
 ## Category Reference
 

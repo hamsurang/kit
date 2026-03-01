@@ -183,33 +183,33 @@ git commit -m "docs: move CONTRIBUTING.md to docs/contributors/contributing.md, 
 **Step 1: Create the file with this exact content**
 
 ```markdown
-# Getting Started with hamkit
+# Getting Started with kit
 
-hamkit is a community plugin & skills marketplace for [Claude Code](https://claude.ai/code).
+kit is a community plugin & skills marketplace for [Claude Code](https://claude.ai/code).
 
 ## Installing a Plugin
 
 ```bash
-claude plugin install <plugin-name>@hamsurang/hamkit
+claude plugin install <plugin-name>@hamsurang/kit
 ```
 
 Example:
 
 ```bash
-claude plugin install vitest@hamsurang/hamkit
+claude plugin install vitest@hamsurang/kit
 ```
 
 ## Installing Skills Only (via npx)
 
 ```bash
-# Install all hamkit skills
-npx skills add hamsurang/hamkit
+# Install all kit skills
+npx skills add hamsurang/kit
 
 # Install a specific skill
-npx skills add hamsurang/hamkit --skill vitest
+npx skills add hamsurang/kit --skill vitest
 
 # Preview available skills without installing
-npx skills add hamsurang/hamkit --list
+npx skills add hamsurang/kit --list
 ```
 
 ## Available Plugins
@@ -218,7 +218,7 @@ See the [plugin directory](../../README.md#plugin--skills-directory) in README f
 
 ## Getting Help
 
-- Browse [GitHub Issues](https://github.com/hamsurang/hamkit/issues)
+- Browse [GitHub Issues](https://github.com/hamsurang/kit/issues)
 - Open a new issue if you encounter a bug or need help
 ```
 
@@ -246,7 +246,7 @@ git commit -m "docs: add docs/users/getting-started.md"
 **Step 1: Create the file with this exact content**
 
 ```markdown
-# hamkit Docs
+# kit Docs
 
 ## For Plugin Users
 
@@ -282,7 +282,7 @@ git commit -m "docs: add docs/index.md as entry point"
 **Step 1: Replace the entire file with**
 
 ```markdown
-# hamkit
+# kit
 
 > A community-driven plugin & skills marketplace for [Claude Code](https://claude.ai/code)
 
@@ -298,13 +298,13 @@ git commit -m "docs: add docs/index.md as entry point"
 Install a plugin from the marketplace:
 
 ```bash
-claude plugin install <plugin-name>@hamsurang/hamkit
+claude plugin install <plugin-name>@hamsurang/kit
 ```
 
 Or install individual skills:
 
 ```bash
-npx skills add hamsurang/hamkit
+npx skills add hamsurang/kit
 ```
 
 → [Full installation guide](docs/users/getting-started.md)
@@ -316,8 +316,8 @@ npx skills add hamsurang/hamkit
 Scaffold a new plugin interactively:
 
 ```bash
-git clone https://github.com/hamsurang/hamkit
-cd hamkit
+git clone https://github.com/hamsurang/kit
+cd kit
 bash scripts/scaffold-plugin.sh
 ```
 
@@ -337,7 +337,7 @@ bash scripts/scaffold-plugin.sh
 
 ## Security Notice
 
-hamkit does not audit or sandbox plugins. Review any plugin — especially `.mcp.json` and shell commands — before installing. Only install from authors you trust.
+kit does not audit or sandbox plugins. Review any plugin — especially `.mcp.json` and shell commands — before installing. Only install from authors you trust.
 
 ## License
 
@@ -383,7 +383,7 @@ Mirror the README.md structure exactly, translated to Korean. Key changes:
 - Match the same two-path (users / contributors) structure as README.md
 
 ```markdown
-# hamkit
+# kit
 
 > [Claude Code](https://claude.ai/code)를 위한 커뮤니티 플러그인 & 스킬 마켓플레이스
 
@@ -399,13 +399,13 @@ Mirror the README.md structure exactly, translated to Korean. Key changes:
 마켓플레이스에서 플러그인 설치:
 
 ```bash
-claude plugin install <플러그인-이름>@hamsurang/hamkit
+claude plugin install <플러그인-이름>@hamsurang/kit
 ```
 
 또는 개별 스킬 설치:
 
 ```bash
-npx skills add hamsurang/hamkit
+npx skills add hamsurang/kit
 ```
 
 → [전체 설치 가이드](docs/users/getting-started.md)
@@ -417,8 +417,8 @@ npx skills add hamsurang/hamkit
 대화형으로 새 플러그인 스캐폴딩:
 
 ```bash
-git clone https://github.com/hamsurang/hamkit
-cd hamkit
+git clone https://github.com/hamsurang/kit
+cd kit
 bash scripts/scaffold-plugin.sh
 ```
 
@@ -438,7 +438,7 @@ bash scripts/scaffold-plugin.sh
 
 ## 보안 안내
 
-hamkit은 플러그인을 별도로 감사하거나 샌드박스 처리하지 않습니다. 특히 `.mcp.json`과 셸 커맨드가 포함된 플러그인은 설치 전 반드시 내용을 검토하세요. 신뢰할 수 있는 작성자의 플러그인만 설치하시기 바랍니다.
+kit은 플러그인을 별도로 감사하거나 샌드박스 처리하지 않습니다. 특히 `.mcp.json`과 셸 커맨드가 포함된 플러그인은 설치 전 반드시 내용을 검토하세요. 신뢰할 수 있는 작성자의 플러그인만 설치하시기 바랍니다.
 
 ## 라이선스
 

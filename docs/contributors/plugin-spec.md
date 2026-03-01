@@ -1,6 +1,6 @@
 # Plugin Specification
 
-This document defines the format for hamkit plugins. All plugins must follow this specification to be accepted into the marketplace.
+This document defines the format for kit plugins. All plugins must follow this specification to be accepted into the marketplace.
 
 ## Directory Structure
 

@@ -1,6 +1,6 @@
 ---
 name: Plugin Submission
-about: Submit a new plugin to the hamkit marketplace
+about: Submit a new plugin to the kit marketplace
 title: '[PLUGIN] your-plugin-name'
 labels: ['plugin-submission']
 assignees: ''
@@ -24,7 +24,7 @@ assignees: ''
 ## Installation & Usage Example
 
 ```bash
-claude plugin install YOUR_PLUGIN_NAME@hamsurang/hamkit
+claude plugin install YOUR_PLUGIN_NAME@hamsurang/kit
 ```
 
 <!-- Show an example of how to use the plugin -->
