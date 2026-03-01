@@ -452,7 +452,7 @@ done
 printf "\n"
 bold "Next steps:"
 printf "  1. Edit the generated files in plugins/%s/\n" "$PLUGIN_NAME"
-printf "  2. See docs/PLUGIN_SPEC.md for format details\n"
+printf "  2. See docs/contributors/plugin-spec.md for format details\n"
 printf "  3. Commit and open a PR:\n"
 printf "\n"
 printf "       cd %s\n" "$REPO_ROOT"
