@@ -1,0 +1,13 @@
+{
+  "name": "skill-review",
+  "version": "1.0.0",
+  "description": "Slash-command skill that reviews any SKILL.md against best practices and outputs a structured pass/fail report",
+  "author": {
+    "name": "minsoo.web",
+    "github": "minsoo-web"
+  },
+  "category": "developer-tools",
+  "license": "MIT",
+  "keywords": ["skill", "review", "linter", "best-practices", "quality", "marketplace"],
+  "skills": "./skills/"
+}
