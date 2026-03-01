@@ -1,8 +1,8 @@
 {
-  "name": "hamkit",
+  "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "repository": "https://github.com/hamsurang/hamkit",
-  "homepage": "https://github.com/hamsurang/hamkit",
+  "repository": "https://github.com/hamsurang/kit",
+  "homepage": "https://github.com/hamsurang/kit",
   "skills": [
     {
       "name": "vitest",

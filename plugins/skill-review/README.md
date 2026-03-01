@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-claude plugin install skill-review@hamsurang/hamkit
+claude plugin install skill-review@hamsurang/kit
 ```
 
 ## What This Plugin Does
@@ -22,6 +22,7 @@ Use the skill with an explicit path or let it auto-discover:
 ```
 
 Also activates when you say:
+
 - "review this skill"
 - "skill review"
 - "check my SKILL.md"
@@ -29,16 +30,16 @@ Also activates when you say:
 
 ## What Gets Checked
 
-| Category | Examples |
-|---|---|
-| Frontmatter | Name format, character limits, reserved words, no XML tags |
-| Description quality | Third-person, "Use when..." form, specific triggers, no workflow summary |
-| Naming conventions | Gerund preferred, not vague generics |
-| Content quality | ≤500 lines, imperative form, no explaining basics, runnable examples |
-| Progressive disclosure | Heavy reference in `references/`, one-level nesting, ToC for large files |
-| Structure | Unix paths, no stale dates, descriptive file names |
-| Scripts (if present) | Error handling, no magic numbers, documented dependencies, qualified MCP names |
-| Plugin manifest (if present) | Required fields in `plugin.json` |
+| Category                     | Examples                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------ |
+| Frontmatter                  | Name format, character limits, reserved words, no XML tags                     |
+| Description quality          | Third-person, "Use when..." form, specific triggers, no workflow summary       |
+| Naming conventions           | Gerund preferred, not vague generics                                           |
+| Content quality              | ≤500 lines, imperative form, no explaining basics, runnable examples           |
+| Progressive disclosure       | Heavy reference in `references/`, one-level nesting, ToC for large files       |
+| Structure                    | Unix paths, no stale dates, descriptive file names                             |
+| Scripts (if present)         | Error handling, no magic numbers, documented dependencies, qualified MCP names |
+| Plugin manifest (if present) | Required fields in `plugin.json`                                               |
 
 ## Output Format
 
@@ -46,21 +47,26 @@ Also activates when you say:
 ## Skill Review: [skill-name]
 
 ### Summary
+
 **Status:** PASS / NEEDS WORK / FAIL
 **Score:** N/N checks passed | N warnings | N errors
 
 ### ✅ Passed (N)
+
 ...
 
 ### ⚠️ Warnings (N)
+
 - **[Check name]**: [finding] — [why it matters]
 
 ### ❌ Errors (N)
+
 - **[Check name]**: [finding] — [why it must be fixed]
 
 ### 📋 Prioritized Recommendations
+
 1. Most critical fix first
-...
+   ...
 ```
 
 ## Plugin Structure
