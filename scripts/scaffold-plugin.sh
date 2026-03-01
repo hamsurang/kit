@@ -1,7 +1,7 @@
 #!/bin/bash
-# scaffold-plugin.sh — Interactive plugin scaffolding for hamkit
+# scaffold-plugin.sh — Interactive plugin scaffolding for kit
 # Usage: bash scripts/scaffold-plugin.sh
-#        curl -sSL https://raw.githubusercontent.com/hamsurang/hamkit/main/scripts/scaffold-plugin.sh | bash
+#        curl -sSL https://raw.githubusercontent.com/hamsurang/kit/main/scripts/scaffold-plugin.sh | bash
 
 set -euo pipefail
 
@@ -81,7 +81,7 @@ sanitize_text() {
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && pwd || pwd)"
 REPO_ROOT=""
 
-# Check if we're in a hamkit repo
+# Check if we're in a kit repo
 if [ -d "$SCRIPT_DIR/../plugins" ]; then
   REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 elif [ -d "$(pwd)/plugins" ]; then
@@ -89,13 +89,13 @@ elif [ -d "$(pwd)/plugins" ]; then
 fi
 
 if [ -z "$REPO_ROOT" ]; then
-  warn "Could not find a hamkit repo (no plugins/ directory found)."
-  warn "Cloning hamkit to ./hamkit/ ..."
+  warn "Could not find a kit repo (no plugins/ directory found)."
+  warn "Cloning kit to ./kit/ ..."
   if command -v git >/dev/null 2>&1; then
-    git clone https://github.com/hamsurang/hamkit hamkit
-    REPO_ROOT="$(pwd)/hamkit"
+    git clone https://github.com/hamsurang/kit kit
+    REPO_ROOT="$(pwd)/kit"
   else
-    error "git is not installed. Please clone hamsurang/hamkit manually."
+    error "git is not installed. Please clone hamsurang/kit manually."
     exit 2
   fi
 fi
@@ -104,8 +104,8 @@ PLUGINS_DIR="$REPO_ROOT/plugins"
 
 # ── Banner ────────────────────────────────────────────────────────────────────
 printf "\n"
-bold "  hamkit Plugin Scaffolder"
-info "  github.com/hamsurang/hamkit"
+bold "  kit Plugin Scaffolder"
+info "  github.com/hamsurang/kit"
 printf "\n"
 
 # ── Collect Inputs ────────────────────────────────────────────────────────────
@@ -331,7 +331,7 @@ MDEOF
 sed -i.bak \
   -e "s|DISPLAY_NAME_PLACEHOLDER|$DISPLAY_NAME|g" \
   -e "s|DESCRIPTION_PLACEHOLDER|$DESCRIPTION|g" \
-  -e "s|INSTALL_CMD_PLACEHOLDER|claude plugin install $PLUGIN_NAME\@hamsurang\/hamkit|g" \
+  -e "s|INSTALL_CMD_PLACEHOLDER|claude plugin install $PLUGIN_NAME\@hamsurang\/kit|g" \
   -e "s|LICENSE_PLACEHOLDER|$LICENSE|g" \
   "$PLUGIN_DIR/README.md" && rm -f "$PLUGIN_DIR/README.md.bak"
 
