@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+out/
+
+# OMC state (local only)
+.omc/state/
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+settings.local.json
+.omc

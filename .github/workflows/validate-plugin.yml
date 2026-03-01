@@ -1,0 +1,149 @@
+name: Validate Plugin
+
+on:
+  pull_request:
+    paths:
+      - 'plugins/**'
+
+jobs:
+  validate-structure:
+    name: Validate plugin structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # Pinned to v4.2.2 SHA to prevent supply-chain attacks via mutable tags
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+
+      - name: Find changed plugin directories
+        id: changed-plugins
+        # SECURITY: github.base_ref is stored in env (not interpolated into shell) to
+        # prevent script injection via maliciously-named branches.
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          CHANGED=$(git diff --name-only "origin/$BASE_REF"...HEAD \
+            | grep '^plugins/' \
+            | cut -d'/' -f1-2 \
+            | sort -u \
+            | tr '\n' ' ')
+          echo "plugins=$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "Changed plugin directories: $CHANGED"
+
+      - name: Check required files exist
+        env:
+          PLUGINS: ${{ steps.changed-plugins.outputs.plugins }}
+        run: |
+          set -f  # disable globbing to prevent expansion of plugin directory names
+          FAILED=0
+          for plugin_dir in $PLUGINS; do
+            [ -d "$plugin_dir" ] || continue
+            echo "Checking $plugin_dir..."
+            if [ ! -f "$plugin_dir/.claude-plugin/plugin.json" ]; then
+              echo "::error file=$plugin_dir/.claude-plugin/plugin.json::Missing required file: .claude-plugin/plugin.json"
+              FAILED=1
+            fi
+            if [ ! -f "$plugin_dir/README.md" ]; then
+              echo "::error file=$plugin_dir/README.md::Missing required file: README.md"
+              FAILED=1
+            fi
+          done
+          exit $FAILED
+
+      - name: Validate plugin.json required fields
+        env:
+          PLUGINS: ${{ steps.changed-plugins.outputs.plugins }}
+        run: |
+          set -f
+          FAILED=0
+          for plugin_dir in $PLUGINS; do
+            MANIFEST="$plugin_dir/.claude-plugin/plugin.json"
+            [ -f "$MANIFEST" ] || continue
+            echo "Validating $MANIFEST..."
+
+            # Extract plugin directory name for name-match check
+            DIR_NAME=$(basename "$plugin_dir")
+
+            node .github/scripts/validate-plugin.js "$MANIFEST" "$DIR_NAME"
+            [ $? -eq 0 ] || FAILED=1
+          done
+          exit $FAILED
+
+      - name: Check .mcp.json for insecure HTTP URLs
+        env:
+          PLUGINS: ${{ steps.changed-plugins.outputs.plugins }}
+        run: |
+          set -f
+          FAILED=0
+          for plugin_dir in $PLUGINS; do
+            MCP="$plugin_dir/.mcp.json"
+            [ -f "$MCP" ] || continue
+            echo "Checking MCP URLs in $MCP..."
+            # Flag http:// URLs that are not localhost or 127.0.0.1
+            if grep -qE '"url"\s*:\s*"http://' "$MCP"; then
+              INSECURE=$(grep -E '"url"\s*:\s*"http://' "$MCP" | grep -v 'localhost\|127\.0\.0\.1' || true)
+              if [ -n "$INSECURE" ]; then
+                echo "::error file=$MCP::MCP server URLs must use HTTPS (except localhost/127.0.0.1)"
+                echo "$INSECURE"
+                FAILED=1
+              fi
+            fi
+          done
+          exit $FAILED
+
+  validate-frontmatter:
+    name: Validate markdown frontmatter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+
+      - name: Find changed markdown files
+        id: changed-md
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          FILES=$(git diff --name-only "origin/$BASE_REF"...HEAD \
+            | grep -E '^plugins/.+/(commands/.+\.md|skills/.+/SKILL\.md|agents/.+\.md)$' \
+            | tr '\n' ' ' || true)
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+          echo "Changed markdown files: $FILES"
+
+      - name: Validate frontmatter exists and has required fields
+        if: steps.changed-md.outputs.files != ''
+        env:
+          MD_FILES: ${{ steps.changed-md.outputs.files }}
+        run: |
+          set -f
+          FAILED=0
+          for md_file in $MD_FILES; do
+            [ -f "$md_file" ] || continue
+            echo "Checking frontmatter in $md_file..."
+
+            # Check file starts with ---
+            if ! head -1 "$md_file" | grep -q '^---$'; then
+              echo "::error file=$md_file::Missing YAML frontmatter (file must start with ---)"
+              FAILED=1
+              continue
+            fi
+
+            # Check for closing ---
+            if ! awk 'NR>1 && /^---$/ { found=1; exit } END { exit !found }' "$md_file"; then
+              echo "::error file=$md_file::Frontmatter not properly closed (missing closing ---)"
+              FAILED=1
+              continue
+            fi
+
+            # Extract frontmatter and check for description field
+            FRONTMATTER=$(awk '/^---$/{if(++c==2)exit} c==1' "$md_file")
+            if ! printf "%s" "$FRONTMATTER" | grep -qE '^description:'; then
+              echo "::error file=$md_file::Frontmatter missing required field: description"
+              FAILED=1
+            else
+              echo "OK: $md_file"
+            fi
+          done
+          exit $FAILED
