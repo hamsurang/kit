@@ -1,24 +1,24 @@
-# Contributing to hamkit
+# Contributing to kit
 
-hamkit is an open community marketplace. Anyone can submit a plugin — no gatekeeper, just quality checks.
+kit is an open community marketplace. Anyone can submit a plugin — no gatekeeper, just quality checks.
 
 ## Ways to Contribute
 
 - **Submit a new plugin** — Share a plugin you built
 - **Improve an existing plugin** — Fix bugs, add features, improve docs
-- **Report issues** — File bug reports or feature requests at [GitHub Issues](https://github.com/hamsurang/hamkit/issues)
+- **Report issues** — File bug reports or feature requests at [GitHub Issues](https://github.com/hamsurang/kit/issues)
 - **Review PRs** — Help validate community plugins
 
 ## Submitting a New Plugin
 
 ### Step 1: Fork and clone the repo
 
-1. Fork [hamsurang/hamkit](https://github.com/hamsurang/hamkit) on GitHub (click **Fork** in the top right)
+1. Fork [hamsurang/kit](https://github.com/hamsurang/kit) on GitHub (click **Fork** in the top right)
 2. Clone your fork:
 
 ```bash
-git clone https://github.com/<your-username>/hamkit
-cd hamkit
+git clone https://github.com/<your-username>/kit
+cd kit
 ```
 
 ### Step 2: Scaffold your plugin

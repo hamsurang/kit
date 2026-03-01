@@ -1,4 +1,4 @@
-# hamkit
+# kit
 
 > [Claude Code](https://claude.ai/code)를 위한 커뮤니티 플러그인 & 스킬 마켓플레이스
 
@@ -11,16 +11,48 @@
 
 ## 플러그인 사용하기
 
-마켓플레이스에서 플러그인 설치:
+### 1단계: kit 마켓플레이스 등록
 
 ```bash
-claude plugin install <플러그인-이름>@hamsurang/hamkit
+claude plugin marketplace add https://github.com/hamsurang/kit
 ```
 
-또는 개별 스킬 설치:
+### 2단계: 플러그인 탐색
 
 ```bash
-npx skills add hamsurang/hamkit
+# 마켓플레이스의 전체 플러그인 목록 보기
+claude plugin list
+
+# 키워드로 검색
+claude plugin search <키워드>
+```
+
+### 3단계: 플러그인 설치
+
+```bash
+claude plugin install <플러그인-이름>
+```
+
+예시:
+
+```bash
+claude plugin install vitest
+```
+
+### 플러그인 업데이트
+
+```bash
+# 특정 플러그인 업데이트
+claude plugin update <플러그인-이름>
+
+# 마켓플레이스 전체 갱신
+claude plugin marketplace update hamsurang/kit
+```
+
+마켓플레이스 등록 없이 스킬만 설치하려면:
+
+```bash
+npx skills add hamsurang/kit
 ```
 
 → [전체 설치 가이드](docs/users/getting-started.md)
@@ -32,8 +64,8 @@ npx skills add hamsurang/hamkit
 대화형으로 새 플러그인 스캐폴딩:
 
 ```bash
-git clone https://github.com/hamsurang/hamkit
-cd hamkit
+git clone https://github.com/hamsurang/kit
+cd kit
 bash scripts/scaffold-plugin.sh
 ```
 
@@ -53,7 +85,7 @@ bash scripts/scaffold-plugin.sh
 
 ## 보안 안내
 
-hamkit은 플러그인을 별도로 감사하거나 샌드박스 처리하지 않습니다. 특히 `.mcp.json`과 셸 커맨드가 포함된 플러그인은 설치 전 반드시 내용을 검토하세요. 신뢰할 수 있는 작성자의 플러그인만 설치하시기 바랍니다.
+kit은 플러그인을 별도로 감사하거나 샌드박스 처리하지 않습니다. 특히 `.mcp.json`과 셸 커맨드가 포함된 플러그인은 설치 전 반드시 내용을 검토하세요. 신뢰할 수 있는 작성자의 플러그인만 설치하시기 바랍니다.
 
 ## 라이선스
 
