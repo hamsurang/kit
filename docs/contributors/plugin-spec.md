@@ -34,7 +34,7 @@ The manifest lives at `.claude-plugin/plugin.json` inside the plugin directory.
 | `description` | string | One clear sentence describing what the plugin does. Max 200 chars. |
 | `author.name` | string | Human-readable author name. |
 | `author.github` | string | GitHub username for attribution and contact. |
-| `category` | string | One of the defined category slugs. See [CATEGORIES.md](./categories.md). |
+| `category` | string | One of the defined category slugs. See [categories.md](./categories.md). |
 | `license` | string | SPDX license identifier (e.g. `MIT`, `Apache-2.0`). |
 
 ### Optional Fields

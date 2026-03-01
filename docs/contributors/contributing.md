@@ -31,7 +31,7 @@ This interactive script creates the plugin directory structure and template file
 
 ### Step 3: Develop your plugin
 
-Edit the generated files in `plugins/<your-plugin>/`. Refer to [PLUGIN_SPEC.md](./plugin-spec.md) for format details.
+Edit the generated files in `plugins/<your-plugin>/`. Refer to [plugin-spec.md](./plugin-spec.md) for format details.
 
 Test locally by installing the plugin from your local path:
 

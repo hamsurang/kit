@@ -98,5 +98,5 @@ Tools for working with data — querying, transforming, analyzing, and visualizi
 
 - Pick the **single best category** — plugins should have one primary category
 - If your plugin fits multiple categories, pick the most prominent one
-- Use `keywords` in `plugin.json` for secondary topics (see [PLUGIN_SPEC.md](./PLUGIN_SPEC.md))
+- Use `keywords` in `plugin.json` for secondary topics (see [plugin-spec.md](./plugin-spec.md))
 - When in doubt, use `productivity`
