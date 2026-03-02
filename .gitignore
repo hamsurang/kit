@@ -33,3 +33,4 @@ out/
 
 settings.local.json
 .omc
+.superset
