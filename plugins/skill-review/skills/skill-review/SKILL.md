@@ -11,6 +11,14 @@ description: >
 
 Reviews a `SKILL.md` against established best practices and outputs a structured pass/fail report with prioritized recommendations.
 
+## Contents
+
+- [Locating the Target Skill](#locating-the-target-skill)
+- [Review Workflow](#review-workflow)
+- [Output Format](#output-format)
+- [Severity Definitions](#severity-definitions)
+- [Full Rubric](#full-rubric)
+
 ## Locating the Target Skill
 
 **With explicit path:** Use the provided path directly (supports both `SKILL.md` files and plugin directories).

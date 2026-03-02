@@ -1,18 +1,21 @@
 ---
 name: vitest
 description: >
-  This skill should be used when the user asks to write, run, or debug tests using Vitest,
+  Use when the user asks to write, run, or debug tests using Vitest,
   asks about vitest.config.ts or vite.config.ts test configuration, asks how to mock modules,
   functions, timers, or globals with the `vi` utility, asks about test coverage setup or thresholds,
   references Vitest API (describe, it, test, expect, beforeEach, afterAll, etc.),
   or encounters failing Vitest tests and needs help diagnosing them.
-version: 1.0.0
-license: MIT
 ---
 
 # Vitest Skill
 
-Vitest is a blazing-fast unit test framework built on top of Vite. It shares the same config, transforms, and module resolution as your Vite project, giving you zero-config testing for most setups.
+## Contents
+
+- [Quick Start](#quick-start)
+- [When This Skill Activates](#when-this-skill-activates)
+- [Behavior Guidelines](#behavior-guidelines)
+- [References Loading Guide](#references-loading-guide)
 
 ## Quick Start
 

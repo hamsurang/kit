@@ -75,9 +75,13 @@ bash scripts/scaffold-plugin.sh
 
 ## 플러그인 & 스킬 목록
 
-| 플러그인 | 카테고리 | 설명 | 작성자 |
-|---------|---------|------|--------|
-| [vitest](./plugins/vitest) | code-quality | Vitest 테스트 작성·디버깅·설정을 위한 자동 활성화 스킬 | [hamsurang](https://github.com/hamsurang) |
+| 플러그인 | 설명 | 작성자 |
+| --------- | ------ | -------- |
+| [vitest](./plugins/vitest) | Vite 기반 프로젝트에서 Vitest 테스트 작성, 디버깅, 설정을 지원하는 자동 활성화 스킬 | [minsoo.web](https://github.com/minsoo-web) |
+| [skill-review](./plugins/skill-review) | SKILL.md를 베스트 프랙티스 기준으로 리뷰하고 pass/fail 리포트를 생성하는 슬래시 커맨드 스킬 | [minsoo.web](https://github.com/minsoo-web) |
+| [gh-cli](./plugins/gh-cli) | gh CLI로 GitHub 작업을 수행할 때 자동으로 활성화되는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
+| [personal-tutor](./plugins/personal-tutor) | 세션 간 학습자 프로필과 지식 그래프를 유지하는 적응형 기술 튜터링 스킬 | [minsoo.web](https://github.com/minsoo-web) |
+| [deepwiki-cli](./plugins/deepwiki-cli) | MCP 토큰 오버헤드 없이 DeepWiki CLI로 GitHub 저장소 위키를 조회하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 
 *플러그인을 기여하고 싶으신가요? [기여 방법](docs/contributors/contributing.md)을 확인하세요.*
 

@@ -1,6 +1,6 @@
 {
   "name": "skill-review",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Slash-command skill that reviews any SKILL.md against best practices and outputs a structured pass/fail report",
   "author": {
     "name": "minsoo.web",

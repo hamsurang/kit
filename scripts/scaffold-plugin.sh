@@ -178,40 +178,6 @@ while true; do
   break
 done
 
-# Category (selected from fixed list — no injection possible)
-printf "\nCategories:\n"
-CATEGORIES=("productivity" "git" "code-quality" "documentation" "ai-agents" "integrations" "learning" "security" "devops" "data")
-CATEGORY_DESCS=(
-  "Workflow automation, time-saving commands"
-  "Version control, commit, PR, and branch management"
-  "Linting, review, refactoring, testing aids"
-  "Docs generation, README helpers, comment writers"
-  "Multi-agent orchestration and agent definitions"
-  "Third-party service and API connectors (via MCP)"
-  "Tutorials, onboarding, knowledge transfer"
-  "Security review, secrets scanning, audit tools"
-  "CI/CD, deployment, infrastructure tooling"
-  "Data analysis, transformation, visualization"
-)
-for i in "${!CATEGORIES[@]}"; do
-  printf "  %2d) %-18s %s\n" "$((i+1))" "${CATEGORIES[$i]}" "${CATEGORY_DESCS[$i]}"
-done
-printf "\n"
-
-while true; do
-  CATEGORY_NUM=$(prompt "Category number" "1")
-  if ! printf "%s" "$CATEGORY_NUM" | grep -qE '^[0-9]+$'; then
-    error "Enter a number between 1 and ${#CATEGORIES[@]}."
-    continue
-  fi
-  if [ "$CATEGORY_NUM" -lt 1 ] || [ "$CATEGORY_NUM" -gt "${#CATEGORIES[@]}" ]; then
-    error "Enter a number between 1 and ${#CATEGORIES[@]}."
-    continue
-  fi
-  CATEGORY="${CATEGORIES[$((CATEGORY_NUM-1))]}"
-  break
-done
-
 # License (SPDX identifier — alphanumeric + hyphens + dots)
 while true; do
   LICENSE=$(prompt "License (SPDX identifier)" "MIT")
@@ -249,7 +215,6 @@ printf "  Name:     %s\n" "$PLUGIN_NAME"
 printf "  Display:  %s\n" "$DISPLAY_NAME"
 printf "  Desc:     %s\n" "$DESCRIPTION"
 printf "  Author:   %s (@%s)\n" "$AUTHOR_NAME" "$AUTHOR_GITHUB"
-printf "  Category: %s\n" "$CATEGORY"
 printf "  License:  %s\n" "$LICENSE"
 printf "  Includes:"
 $INCLUDE_COMMANDS && printf " commands"
@@ -274,18 +239,17 @@ mkdir -p "$PLUGIN_DIR/.claude-plugin"
 # This prevents JSON corruption and shell injection from special chars in free-text fields.
 if command -v python3 >/dev/null 2>&1; then
   python3 - "$PLUGIN_NAME" "$DESCRIPTION" "$AUTHOR_NAME" "$AUTHOR_GITHUB" \
-    "$CATEGORY" "$LICENSE" \
+    "$LICENSE" \
     "$INCLUDE_COMMANDS" "$INCLUDE_SKILLS" "$INCLUDE_AGENTS" "$INCLUDE_MCP" \
     "$PLUGIN_DIR/.claude-plugin/plugin.json" <<'PYEOF'
 import json, sys
-name, desc, author_name, author_github, category, license_, \
+name, desc, author_name, author_github, license_, \
   inc_commands, inc_skills, inc_agents, inc_mcp, outfile = sys.argv[1:]
 data = {
     "name": name,
     "version": "1.0.0",
     "description": desc,
     "author": {"name": author_name, "github": author_github},
-    "category": category,
     "license": license_,
     "keywords": []
 }
@@ -305,7 +269,6 @@ else
     printf '  "version": "1.0.0",\n'
     printf '  "description": "%s",\n' "$DESCRIPTION"
     printf '  "author": {\n    "name": "%s",\n    "github": "%s"\n  },\n' "$AUTHOR_NAME" "$AUTHOR_GITHUB"
-    printf '  "category": "%s",\n' "$CATEGORY"
     printf '  "license": "%s",\n' "$LICENSE"
     if $INCLUDE_COMMANDS; then printf '  "commands": "./commands/",\n'; fi
     if $INCLUDE_SKILLS;   then printf '  "skills": "./skills/",\n';   fi
@@ -381,8 +344,6 @@ name: PLUGIN_NAME_PLACEHOLDER-skill
 description: >
   This skill should be used when the user asks about "<!-- trigger topic -->".
   <!-- Describe additional trigger conditions -->
-version: 1.0.0
-license: LICENSE_PLACEHOLDER
 ---
 
 # DISPLAY_NAME_PLACEHOLDER Skill
@@ -398,7 +359,6 @@ SKILLEOF
   sed -i.bak \
     -e "s|PLUGIN_NAME_PLACEHOLDER|$PLUGIN_NAME|g" \
     -e "s|DISPLAY_NAME_PLACEHOLDER|$DISPLAY_NAME|g" \
-    -e "s|LICENSE_PLACEHOLDER|$LICENSE|g" \
     "$PLUGIN_DIR/skills/$PLUGIN_NAME-skill/SKILL.md" && rm -f "$PLUGIN_DIR/skills/$PLUGIN_NAME-skill/SKILL.md.bak"
 fi
 

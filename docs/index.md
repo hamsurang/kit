@@ -8,4 +8,3 @@
 
 - [Contributing Guide](./contributors/contributing.md) — How to submit a plugin
 - [Plugin Spec](./contributors/plugin-spec.md) — Plugin format reference
-- [Categories](./contributors/categories.md) — Category taxonomy
