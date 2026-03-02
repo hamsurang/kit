@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'plugins/**'
+      - '.claude-plugin/marketplace.json'
 
 jobs:
   validate-structure:
@@ -147,3 +148,13 @@ jobs:
             fi
           done
           exit $FAILED
+
+  validate-marketplace:
+    name: Validate marketplace.json
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Validate marketplace.json schema
+        run: node .github/scripts/validate-marketplace.js .claude-plugin/marketplace.json

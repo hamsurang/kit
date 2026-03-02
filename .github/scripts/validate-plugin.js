@@ -20,7 +20,7 @@ try {
 let failed = false;
 
 // Required top-level fields
-const required = ['name', 'version', 'description', 'category', 'license'];
+const required = ['name', 'version', 'description', 'license'];
 for (const field of required) {
   if (!manifest[field]) {
     console.error('Missing required field: ' + field);

@@ -1,4 +1,4 @@
-# hamkit Docs
+# kit Docs
 
 ## For Plugin Users
 
