@@ -1,7 +1,7 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": {
     "name": "hamsurang",
     "email": "zlemzlem5656@naver.com"
@@ -11,6 +11,11 @@
       "name": "vitest",
       "source": "./plugins/vitest",
       "description": "Auto-invoked skill for writing, debugging, and configuring Vitest tests in Vite-based projects"
+    },
+    {
+      "name": "skill-review",
+      "source": "./plugins/skill-review",
+      "description": "Slash-command skill that reviews any SKILL.md against best practices and outputs a structured pass/fail report"
     }
   ]
 }
