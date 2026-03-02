@@ -34,7 +34,6 @@ The manifest lives at `.claude-plugin/plugin.json` inside the plugin directory.
 | `description` | string | One clear sentence describing what the plugin does. Max 200 chars. |
 | `author.name` | string | Human-readable author name. |
 | `author.github` | string | GitHub username for attribution and contact. |
-| `category` | string | One of the defined category slugs. See [categories.md](./categories.md). |
 | `license` | string | SPDX license identifier (e.g. `MIT`, `Apache-2.0`). |
 
 ### Optional Fields
@@ -58,7 +57,6 @@ The manifest lives at `.claude-plugin/plugin.json` inside the plugin directory.
     "name": "Your Name",
     "github": "your-github-username"
   },
-  "category": "productivity",
   "license": "MIT",
   "keywords": ["automation", "workflow"],
   "repository": "https://github.com/you/my-plugin",
@@ -80,6 +78,8 @@ allowed-tools: [Read, Glob, Grep, Bash]        # Optional
 model: sonnet                                  # Optional: haiku, sonnet, opus
 ---
 ```
+
+`commands/*.md` frontmatter requires only `description`.
 
 ### Body
 
@@ -116,10 +116,10 @@ Skills are automatically invoked by Claude when the conversation context matches
 name: skill-name              # Required: unique identifier
 description: >                # Required: trigger conditions (used by Claude to decide when to activate)
   This skill should be used when...
-version: 1.0.0               # Required: semantic version
-license: MIT                 # Required: SPDX identifier
 ---
 ```
+
+`skills/*/SKILL.md` frontmatter requires both `name` and `description`.
 
 The `description` field is critical — it's what Claude reads to decide whether to activate this skill. Write it as trigger scenarios starting with "This skill should be used when...".
 
@@ -132,8 +132,6 @@ description: >
   This skill should be used when the user asks to "explain this code",
   "what does this do", "help me understand", or asks questions about
   how a specific piece of code works.
-version: 1.0.0
-license: MIT
 ---
 
 # Code Explainer
@@ -163,6 +161,8 @@ description: >                # Required: when/how to invoke this agent
   Use this agent when...
 ---
 ```
+
+`agents/*.md` frontmatter requires both `name` and `description`.
 
 ### Example: `agents/reviewer.md`
 

@@ -123,6 +123,7 @@ jobs:
           for md_file in $MD_FILES; do
             [ -f "$md_file" ] || continue
             echo "Checking frontmatter in $md_file..."
+            FILE_FAILED=0
 
             # Check file starts with ---
             if ! head -1 "$md_file" | grep -q '^---$'; then
@@ -138,12 +139,25 @@ jobs:
               continue
             fi
 
-            # Extract frontmatter and check for description field
+            # Extract frontmatter and check required fields by file type
             FRONTMATTER=$(awk '/^---$/{if(++c==2)exit} c==1' "$md_file")
             if ! printf "%s" "$FRONTMATTER" | grep -qE '^description:'; then
               echo "::error file=$md_file::Frontmatter missing required field: description"
               FAILED=1
-            else
+              FILE_FAILED=1
+            fi
+
+            case "$md_file" in
+              plugins/*/skills/*/SKILL.md|plugins/*/agents/*.md)
+                if ! printf "%s" "$FRONTMATTER" | grep -qE '^name:'; then
+                  echo "::error file=$md_file::Frontmatter missing required field: name"
+                  FAILED=1
+                  FILE_FAILED=1
+                fi
+                ;;
+            esac
+
+            if [ "$FILE_FAILED" -eq 0 ]; then
               echo "OK: $md_file"
             fi
           done

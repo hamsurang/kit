@@ -54,10 +54,10 @@ Your PR will be automatically validated by CI and reviewed by a maintainer withi
 
 Before submitting, verify all items:
 
-- [ ] `plugin.json` has all required fields: `name`, `version`, `description`, `author`, `category`, `license`
+- [ ] `plugin.json` has all required fields: `name`, `version`, `description`, `author`, `license`
 - [ ] Plugin name is unique and kebab-case (no spaces, lowercase)
 - [ ] `README.md` is present and explains what the plugin does
-- [ ] Markdown files have valid YAML frontmatter (no syntax errors)
+- [ ] Markdown frontmatter has required fields (`commands`: `description`, `skills`/`agents`: `name`, `description`)
 - [ ] No hardcoded secrets or credentials in any file
 - [ ] MCP server URLs use HTTPS (except `localhost` / `127.0.0.1`)
 - [ ] License is declared and compatible with open source distribution

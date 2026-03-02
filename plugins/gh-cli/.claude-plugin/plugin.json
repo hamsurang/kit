@@ -6,7 +6,6 @@
     "name": "minsoo.web",
     "github": "minsoo-web"
   },
-  "category": "git",
   "license": "MIT",
   "keywords": ["github", "gh", "cli", "pull-request", "issues"],
   "skills": "./skills/"

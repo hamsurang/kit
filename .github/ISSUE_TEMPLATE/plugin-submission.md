@@ -11,9 +11,6 @@ assignees: ''
 **Plugin name** (kebab-case):
 <!-- e.g. my-awesome-plugin -->
 
-**Category**:
-<!-- productivity | git | code-quality | documentation | ai-agents | integrations | learning | security | devops | data -->
-
 **Description** (one sentence):
 <!-- What does this plugin do? -->
 
@@ -37,6 +34,7 @@ claude plugin install YOUR_PLUGIN_NAME@hamsurang/kit
 
 - [ ] I have tested this plugin locally
 - [ ] `plugin.json` has all required fields
+- [ ] Markdown frontmatter has required fields (`commands`: `description`, `skills`/`agents`: `name`, `description`)
 - [ ] `README.md` is present with usage examples
 - [ ] No secrets or credentials are hardcoded
 - [ ] The plugin follows [PLUGIN_SPEC.md](../../docs/contributors/plugin-spec.md)

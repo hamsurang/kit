@@ -41,16 +41,6 @@ if (!manifest.author) {
   }
 }
 
-// Category validation
-const validCategories = [
-  'productivity', 'git', 'code-quality', 'documentation',
-  'ai-agents', 'integrations', 'learning', 'security', 'devops', 'data'
-];
-if (manifest.category && !validCategories.includes(manifest.category)) {
-  console.error('Invalid category: ' + manifest.category + '. Must be one of: ' + validCategories.join(', '));
-  failed = true;
-}
-
 // Name format: kebab-case only
 const nameRegex = /^[a-z0-9-]+$/;
 if (manifest.name && !nameRegex.test(manifest.name)) {
