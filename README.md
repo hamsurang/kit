@@ -75,9 +75,13 @@ bash scripts/scaffold-plugin.sh
 
 ## Plugin & Skills Directory
 
-| Plugin | Category | Description | Author |
-|--------|----------|-------------|--------|
-| [vitest](./plugins/vitest) | code-quality | Auto-invoked skill for writing, debugging, and configuring Vitest tests | [hamsurang](https://github.com/hamsurang) |
+| Plugin | Description | Author |
+| -------- | ----------- | -------- |
+| [vitest](./plugins/vitest) | Auto-invoked skill for writing, debugging, and configuring Vitest tests in Vite-based projects | [minsoo.web](https://github.com/minsoo-web) |
+| [skill-review](./plugins/skill-review) | Slash-command skill that reviews any SKILL.md against best practices and outputs a structured pass/fail report | [minsoo.web](https://github.com/minsoo-web) |
+| [gh-cli](./plugins/gh-cli) | Auto-invoked skill for working with GitHub from the command line using the gh CLI tool | [minsoo.web](https://github.com/minsoo-web) |
+| [personal-tutor](./plugins/personal-tutor) | Adaptive technical tutoring skill that builds a persistent knowledge graph and learner profile across sessions | [minsoo.web](https://github.com/minsoo-web) |
+| [deepwiki-cli](./plugins/deepwiki-cli) | Query GitHub repository wikis via DeepWiki CLI without MCP token overhead. | [minsoo.web](https://github.com/minsoo-web) |
 
 *Have a plugin to share? See [Contributing](docs/contributors/contributing.md).*
 
