@@ -1,7 +1,7 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "owner": {
     "name": "hamsurang",
     "email": "zlemzlem5656@naver.com"
@@ -16,6 +16,11 @@
       "name": "skill-review",
       "source": "./plugins/skill-review",
       "description": "Slash-command skill that reviews any SKILL.md against best practices and outputs a structured pass/fail report"
+    },
+    {
+      "name": "gh-cli",
+      "source": "./plugins/gh-cli",
+      "description": "Auto-invoked skill for working with GitHub from the command line using the gh CLI tool"
     },
     {
       "name": "personal-tutor",
