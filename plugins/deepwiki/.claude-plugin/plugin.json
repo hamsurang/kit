@@ -1,0 +1,13 @@
+{
+  "name": "deepwiki",
+  "version": "1.0.0",
+  "description": "Query GitHub repository wikis via DeepWiki CLI without MCP token overhead.",
+  "author": {
+    "name": "hamsurang",
+    "github": "hamsurang"
+  },
+  "category": "productivity",
+  "license": "MIT",
+  "keywords": ["deepwiki", "github", "wiki", "token-saving"],
+  "skills": "./skills/"
+}
