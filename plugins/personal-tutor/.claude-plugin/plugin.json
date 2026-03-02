@@ -1,0 +1,12 @@
+{
+  "name": "personal-tutor",
+  "version": "1.0.0",
+  "description": "Adaptive technical tutoring skill that builds a persistent knowledge graph and learner profile across sessions",
+  "author": {
+    "name": "minsoo.web",
+    "github": "minsoo-web"
+  },
+  "license": "MIT",
+  "keywords": ["learning", "tutoring", "knowledge-graph", "adaptive", "education", "technical"],
+  "skills": "./skills/"
+}

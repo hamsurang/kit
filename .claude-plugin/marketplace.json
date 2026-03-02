@@ -21,6 +21,11 @@
       "name": "gh-cli",
       "source": "./plugins/gh-cli",
       "description": "Auto-invoked skill for working with GitHub from the command line using the gh CLI tool"
+    },
+    {
+      "name": "personal-tutor",
+      "source": "./plugins/personal-tutor",
+      "description": "Adaptive technical tutoring skill that builds a persistent knowledge graph and learner profile across sessions"
     }
   ]
 }
