@@ -103,7 +103,6 @@ Only applies if the skill is part of a plugin (includes `plugin.json`).
 | `plugin.json` has `version` field (semver) | ❌ Error | Required for update management |
 | `plugin.json` has `description` field | ❌ Error | Required for marketplace display |
 | `plugin.json` has `author` field | ⚠️ Warning | Strongly recommended for attribution and support |
-| `plugin.json` has `category` field | ⚠️ Warning | Required for marketplace categorization |
 
 ---
 
