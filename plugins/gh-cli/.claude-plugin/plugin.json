@@ -1,0 +1,13 @@
+{
+  "name": "gh-cli",
+  "version": "1.0.0",
+  "description": "Auto-invoked skill for working with GitHub from the command line using the gh CLI tool",
+  "author": {
+    "name": "minsoo.web",
+    "github": "minsoo-web"
+  },
+  "category": "git",
+  "license": "MIT",
+  "keywords": ["github", "gh", "cli", "pull-request", "issues"],
+  "skills": "./skills/"
+}
