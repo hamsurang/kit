@@ -1,7 +1,7 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "version": "1.3.1",
+  "version": "1.4.1",
   "owner": {
     "name": "hamsurang",
     "email": "zlemzlem5656@naver.com"
@@ -26,6 +26,11 @@
       "name": "personal-tutor",
       "source": "./plugins/personal-tutor",
       "description": "Adaptive technical tutoring skill that builds a persistent knowledge graph and learner profile across sessions"
+    },
+    {
+      "name": "deepwiki-cli",
+      "source": "./plugins/deepwiki-cli",
+      "description": "Query GitHub repository wikis via DeepWiki CLI without MCP token overhead."
     }
   ]
 }
