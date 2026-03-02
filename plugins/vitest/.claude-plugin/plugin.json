@@ -1,12 +1,11 @@
 {
   "name": "vitest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Auto-invoked skill for writing, debugging, and configuring Vitest tests in Vite-based projects",
   "author": {
     "name": "minsoo.web",
     "github": "minsoo-web"
   },
-  "category": "code-quality",
   "license": "MIT",
   "keywords": ["vitest", "testing", "unit-test", "mocking", "coverage"],
   "skills": "./skills/"
