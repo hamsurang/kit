@@ -273,9 +273,13 @@ mkdir -p "$PLUGIN_DIR/.claude-plugin"
 # plugin.json — generated via python3 for safe JSON encoding of all user input
 # This prevents JSON corruption and shell injection from special chars in free-text fields.
 if command -v python3 >/dev/null 2>&1; then
-  python3 - "$PLUGIN_NAME" "$DESCRIPTION" "$AUTHOR_NAME" "$AUTHOR_GITHUB" "$CATEGORY" "$LICENSE" "$PLUGIN_DIR/.claude-plugin/plugin.json" <<'PYEOF'
+  python3 - "$PLUGIN_NAME" "$DESCRIPTION" "$AUTHOR_NAME" "$AUTHOR_GITHUB" \
+    "$CATEGORY" "$LICENSE" \
+    "$INCLUDE_COMMANDS" "$INCLUDE_SKILLS" "$INCLUDE_AGENTS" "$INCLUDE_MCP" \
+    "$PLUGIN_DIR/.claude-plugin/plugin.json" <<'PYEOF'
 import json, sys
-name, desc, author_name, author_github, category, license_, outfile = sys.argv[1:]
+name, desc, author_name, author_github, category, license_, \
+  inc_commands, inc_skills, inc_agents, inc_mcp, outfile = sys.argv[1:]
 data = {
     "name": name,
     "version": "1.0.0",
@@ -285,26 +289,31 @@ data = {
     "license": license_,
     "keywords": []
 }
+if inc_commands == "true": data["commands"] = "./commands/"
+if inc_skills  == "true": data["skills"]   = "./skills/"
+if inc_agents  == "true": data["agents"]   = "./agents/"
+if inc_mcp     == "true": data["mcpServers"] = "./.mcp.json"
 with open(outfile, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
     f.write('\n')
 PYEOF
 else
   # Fallback: all variables here are validated/sanitized above (no injection risk)
-  cat > "$PLUGIN_DIR/.claude-plugin/plugin.json" <<JSONEOF
-{
-  "name": "$PLUGIN_NAME",
-  "version": "1.0.0",
-  "description": "$DESCRIPTION",
-  "author": {
-    "name": "$AUTHOR_NAME",
-    "github": "$AUTHOR_GITHUB"
-  },
-  "category": "$CATEGORY",
-  "license": "$LICENSE",
-  "keywords": []
-}
-JSONEOF
+  {
+    printf '{\n'
+    printf '  "name": "%s",\n' "$PLUGIN_NAME"
+    printf '  "version": "1.0.0",\n'
+    printf '  "description": "%s",\n' "$DESCRIPTION"
+    printf '  "author": {\n    "name": "%s",\n    "github": "%s"\n  },\n' "$AUTHOR_NAME" "$AUTHOR_GITHUB"
+    printf '  "category": "%s",\n' "$CATEGORY"
+    printf '  "license": "%s",\n' "$LICENSE"
+    if $INCLUDE_COMMANDS; then printf '  "commands": "./commands/",\n'; fi
+    if $INCLUDE_SKILLS;   then printf '  "skills": "./skills/",\n';   fi
+    if $INCLUDE_AGENTS;   then printf '  "agents": "./agents/",\n';   fi
+    if $INCLUDE_MCP;      then printf '  "mcpServers": "./.mcp.json",\n'; fi
+    printf '  "keywords": []\n'
+    printf '}\n'
+  } > "$PLUGIN_DIR/.claude-plugin/plugin.json"
 fi
 
 # README.md — uses quoted heredoc for static template; variables printed separately

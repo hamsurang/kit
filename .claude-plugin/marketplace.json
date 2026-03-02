@@ -1,13 +1,16 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "repository": "https://github.com/hamsurang/kit",
-  "homepage": "https://github.com/hamsurang/kit",
-  "skills": [
+  "version": "1.0.0",
+  "owner": {
+    "name": "hamsurang",
+    "email": "zlemzlem5656@naver.com"
+  },
+  "plugins": [
     {
       "name": "vitest",
-      "description": "Auto-invoked skill for writing, debugging, and configuring Vitest tests in Vite-based projects",
-      "path": "plugins/vitest/skills/vitest/SKILL.md"
+      "source": "./plugins/vitest",
+      "description": "Auto-invoked skill for writing, debugging, and configuring Vitest tests in Vite-based projects"
     }
   ]
 }
