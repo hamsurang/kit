@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-claude plugin install vitest@hamsurang/hamkit
+claude plugin install vitest@hamsurang/kit
 ```
 
 ## What This Plugin Does

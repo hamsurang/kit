@@ -8,7 +8,7 @@
 
 ## Problem Statement
 
-The hamkit repository mixes user-facing content (how to install/use plugins) and contributor-facing content (how to build/submit plugins) in the same files, making the first-time experience unclear for both audiences. Additionally, there are known information inconsistencies (a `ham-starter` plugin referenced in README that does not exist).
+The kit repository mixes user-facing content (how to install/use plugins) and contributor-facing content (how to build/submit plugins) in the same files, making the first-time experience unclear for both audiences. Additionally, there are known information inconsistencies (a `ham-starter` plugin referenced in README that does not exist).
 
 ---
 
@@ -24,7 +24,7 @@ The hamkit repository mixes user-facing content (how to install/use plugins) and
 ## Directory Structure (After)
 
 ```
-hamkit/
+kit/
 ├── README.md                       # Landing page — two clear paths
 ├── README.ko.md                    # Korean mirror, same structure
 ├── docs/

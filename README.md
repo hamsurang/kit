@@ -1,4 +1,4 @@
-# hamkit
+# kit
 
 > A community-driven plugin & skills marketplace for [Claude Code](https://claude.ai/code)
 
@@ -11,16 +11,48 @@
 
 ## Using Plugins
 
-Install a plugin from the marketplace:
+### Step 1: Add the kit marketplace
 
 ```bash
-claude plugin install <plugin-name>@hamsurang/hamkit
+claude plugin marketplace add https://github.com/hamsurang/kit
 ```
 
-Or install individual skills:
+### Step 2: Browse available plugins
 
 ```bash
-npx skills add hamsurang/hamkit
+# List all plugins from the marketplace
+claude plugin list
+
+# Search by keyword
+claude plugin search <keyword>
+```
+
+### Step 3: Install a plugin
+
+```bash
+claude plugin install <plugin-name>
+```
+
+Example:
+
+```bash
+claude plugin install vitest
+```
+
+### Updating plugins
+
+```bash
+# Update a specific plugin
+claude plugin update <plugin-name>
+
+# Refresh all plugins from the marketplace
+claude plugin marketplace update hamsurang/kit
+```
+
+Or install individual skills without adding the marketplace:
+
+```bash
+npx skills add hamsurang/kit
 ```
 
 → [Full installation guide](docs/users/getting-started.md)
@@ -32,8 +64,8 @@ npx skills add hamsurang/hamkit
 Scaffold a new plugin interactively:
 
 ```bash
-git clone https://github.com/hamsurang/hamkit
-cd hamkit
+git clone https://github.com/hamsurang/kit
+cd kit
 bash scripts/scaffold-plugin.sh
 ```
 
@@ -53,7 +85,7 @@ bash scripts/scaffold-plugin.sh
 
 ## Security Notice
 
-hamkit does not audit or sandbox plugins. Review any plugin — especially `.mcp.json` and shell commands — before installing. Only install from authors you trust.
+kit does not audit or sandbox plugins. Review any plugin — especially `.mcp.json` and shell commands — before installing. Only install from authors you trust.
 
 ## License
 
