@@ -1,6 +1,6 @@
 {
   "name": "obsidian",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and direct file access",
   "author": {
     "name": "minsoo.web",

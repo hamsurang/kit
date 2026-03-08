@@ -1,0 +1,12 @@
+{
+  "name": "obsidian-brain",
+  "version": "1.0.0",
+  "description": "Archive learnings from Claude Code sessions to Obsidian vault as Zettelkasten notes and use vault knowledge as conversational context",
+  "author": {
+    "name": "minsoo.web",
+    "github": "minsoo-web"
+  },
+  "license": "MIT",
+  "keywords": ["obsidian", "zettelkasten", "knowledge", "archival", "learning"],
+  "skills": "./skills/"
+}

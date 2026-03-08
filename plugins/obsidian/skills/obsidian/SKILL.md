@@ -2,12 +2,16 @@
 name: obsidian
 description: >
   Use when the user mentions Obsidian, vault, daily notes, wikilinks,
-  frontmatter, backlinks, graph view, PKM, Zettelkasten, or obsidian-cli.
-  Activates for searching, creating, editing, moving notes in an Obsidian
-  vault, managing YAML frontmatter, or syncing vaults via Obsidian Headless
-  (ob CLI). Also trigger on Korean phrases like "내 노트에서 찾아줘" or
-  "vault 동기화". Do NOT trigger for generic Markdown editing (README, docs)
-  or other note apps (Notion, Bear).
+  frontmatter, backlinks, graph view, or obsidian-cli. Activates for
+  searching, creating, editing, moving notes in an Obsidian vault,
+  managing YAML frontmatter, setting up Zettelkasten vault structure,
+  or syncing vaults via Obsidian Headless (ob CLI). Also trigger on
+  Korean phrases like "노트 만들어줘", "vault 동기화", or "frontmatter
+  수정해줘". Do NOT trigger for generic Markdown editing (README, docs)
+  or other note apps (Notion, Bear). Do NOT activate when the user wants
+  to use vault notes as conversational context (e.g., "내 노트 참고해서
+  답해줘", "check my notes about X", "이전에 정리한 거 있어?") — that
+  belongs to the obsidian-brain skill.
 ---
 
 # Obsidian Vault Skill

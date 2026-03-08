@@ -1,7 +1,7 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "owner": {
     "name": "hamsurang",
     "email": "zlemzlem5656@naver.com"
@@ -36,6 +36,11 @@
       "name": "obsidian",
       "source": "./plugins/obsidian",
       "description": "Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and Obsidian Headless"
+    },
+    {
+      "name": "obsidian-brain",
+      "source": "./plugins/obsidian-brain",
+      "description": "Archive learnings from Claude Code sessions to Obsidian vault as Zettelkasten notes and use vault knowledge as conversational context"
     }
   ]
 }
