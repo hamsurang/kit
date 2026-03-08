@@ -1,0 +1,12 @@
+{
+  "name": "obsidian",
+  "version": "1.0.0",
+  "description": "Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and direct file access",
+  "author": {
+    "name": "minsoo.web",
+    "github": "minsoo-web"
+  },
+  "license": "MIT",
+  "keywords": ["obsidian", "notes", "markdown", "vault", "knowledge-base", "pkm"],
+  "skills": "./skills/"
+}

@@ -1,7 +1,7 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "owner": {
     "name": "hamsurang",
     "email": "zlemzlem5656@naver.com"
@@ -31,6 +31,11 @@
       "name": "deepwiki-cli",
       "source": "./plugins/deepwiki-cli",
       "description": "Query GitHub repository wikis via DeepWiki CLI without MCP token overhead."
+    },
+    {
+      "name": "obsidian",
+      "source": "./plugins/obsidian",
+      "description": "Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and Obsidian Headless"
     }
   ]
 }
