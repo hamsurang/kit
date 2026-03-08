@@ -1,7 +1,7 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "owner": {
     "name": "hamsurang",
     "email": "zlemzlem5656@naver.com"
@@ -36,6 +36,11 @@
       "name": "obsidian",
       "source": "./plugins/obsidian",
       "description": "Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and Obsidian Headless"
+    },
+    {
+      "name": "library-analyzer",
+      "source": "./plugins/library-analyzer",
+      "description": "Analyze open-source libraries for contribution readiness with structured reports on codebase structure, lifecycle, issues, and first contributions"
     },
     {
       "name": "obsidian-brain",
