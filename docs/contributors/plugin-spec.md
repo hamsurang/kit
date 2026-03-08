@@ -115,13 +115,13 @@ Skills are automatically invoked by Claude when the conversation context matches
 ---
 name: skill-name              # Required: unique identifier
 description: >                # Required: trigger conditions (used by Claude to decide when to activate)
-  This skill should be used when...
+  Use when...
 ---
 ```
 
 `skills/*/SKILL.md` frontmatter requires both `name` and `description`.
 
-The `description` field is critical — it's what Claude reads to decide whether to activate this skill. Write it as trigger scenarios starting with "This skill should be used when...".
+The `description` field is critical — it's what Claude reads to decide whether to activate this skill. Write it as trigger scenarios starting with "Use when...".
 
 ### Example: `skills/code-explainer/SKILL.md`
 
@@ -129,9 +129,9 @@ The `description` field is critical — it's what Claude reads to decide whether
 ---
 name: code-explainer
 description: >
-  This skill should be used when the user asks to "explain this code",
-  "what does this do", "help me understand", or asks questions about
-  how a specific piece of code works.
+  Use when the user asks to "explain this code", "what does this do",
+  "help me understand", or asks questions about how a specific piece
+  of code works.
 ---
 
 # Code Explainer

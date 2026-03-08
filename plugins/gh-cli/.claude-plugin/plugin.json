@@ -1,6 +1,6 @@
 {
   "name": "gh-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Auto-invoked skill for working with GitHub from the command line using the gh CLI tool",
   "author": {
     "name": "minsoo.web",

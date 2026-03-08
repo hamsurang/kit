@@ -1,6 +1,11 @@
 ---
 name: personal-tutor
-description: Use when user wants to learn a technical topic, says "I want to learn X", "teach me X", or "let's study X". Also use when user resumes a previous learning session on a topic they've studied before.
+description: >
+  Use when the user wants to learn a technical topic through structured,
+  multi-session tutoring with prerequisite tracking and knowledge graphs.
+  Activates on "I want to learn X", "teach me X", "let's study X", or
+  resuming a previous learning session. Do NOT activate for quick reference
+  lookups or one-off coding questions — only for sustained learning goals.
 ---
 
 # Personal Tutor
@@ -10,6 +15,8 @@ description: Use when user wants to learn a technical topic, says "I want to lea
 ## Session Start
 
 1. Extract topic name from user input (e.g., "Rust", "TypeScript generics")
+   - Normalize the topic name: lowercase, replace spaces with hyphens, strip special characters
+     - Example: "TypeScript Generics" → `typescript-generics`, "Rust" → `rust`
 2. Check `~/.claude/learning/topics/{topic}/knowledge-graph.md`
    - **Exists** → load it + `~/.claude/learning/learner-profile.md` → jump to **Phase 2**
    - **Not exists** → create `~/.claude/learning/topics/{topic}/` → start **Phase 1**
@@ -25,7 +32,9 @@ After mapping, ask once: **"Is there a reference you'd like me to draw from? (bo
 - Yes → store in `knowledge-graph.md` header as `Reference: [title + URL]`; use for examples and citations only — Claude leads curriculum
 - No → set `Reference: none`
 
-Create `knowledge-graph.md` using `knowledge-graph-template.md`. Seed nodes based on the topic's prerequisite tree. All nodes start as `gap`.
+Read `knowledge-graph-template.md` only when creating a new knowledge graph (first session for a topic). Create `knowledge-graph.md` using the template. Seed nodes based on the topic's prerequisite tree. All nodes start as `gap`.
+
+Keep the initial knowledge graph to 10–15 nodes. If the topic is broad (e.g., "Rust"), scope to a subtopic first (e.g., "Rust ownership and borrowing"). Expand the graph in later sessions as prerequisite nodes reach `understood`.
 
 ## Phase 2: Agenda Planning
 
@@ -80,6 +89,7 @@ Upgrade rules:
 - `partial → understood`: node was already `partial` from a prior session AND passed quiz today WITHOUT hints
 
 Never downgrade a node. If quiz failed: add note to quiz history AND flag concept in learner-profile as "needs reinforcement" (propose this to user in Step 3).
+- If a node fails quiz 2 sessions in a row: downgrade `partial → gap` and re-teach from a different angle next session
 
 Depth progression (update when quiz demonstrates deeper mastery):
 - Quiz format was Feynman and passed → depth moves toward `explain`
@@ -128,6 +138,14 @@ Wait for explicit confirmation. Then update `~/.claude/learning/learner-profile.
 ## Topic History
 - {topic}: {N} sessions ({Concept} ✓|⚠|✗, ...)
 ```
+
+## Early Session Exit
+
+If the user needs to leave mid-session:
+
+1. Save progress immediately — update any node states changed so far
+2. Write a partial session log noting where the session stopped
+3. On next session resume, pick up from the interrupted point (skip re-teaching completed concepts)
 
 ## Iron Rules
 

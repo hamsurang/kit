@@ -1,6 +1,6 @@
 # obsidian-cli Command Reference
 
-Version: 0.2.3 | Install: `brew install yakitrak/yakitrak/obsidian-cli`
+Install: `brew install yakitrak/yakitrak/obsidian-cli`
 
 All commands accept `--vault <name>` to target a specific vault. If omitted, uses the default vault set via `set-default`.
 
@@ -167,7 +167,7 @@ obsidian-cli completion fish
 
 # Obsidian Headless (`ob`) Command Reference
 
-Version: 0.0.6 (open beta) | Install: `npm install -g obsidian-headless` | Requires: Node.js 22+
+Install: `npm install -g obsidian-headless` | Requires: Node.js 22+
 
 Obsidian Headless is a standalone CLI for Obsidian Sync — syncs vaults without the desktop app.
 

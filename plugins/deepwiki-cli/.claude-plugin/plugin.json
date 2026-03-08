@@ -1,10 +1,10 @@
 {
   "name": "deepwiki-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Query GitHub repository wikis via DeepWiki CLI without MCP token overhead.",
   "author": {
     "name": "minsoo.web",
-    "github": "minsoo.web"
+    "github": "minsoo-web"
   },
   "license": "MIT",
   "keywords": ["deepwiki", "github", "wiki", "token-saving"],

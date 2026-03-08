@@ -1,6 +1,6 @@
 {
   "name": "library-analyzer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Analyze open-source libraries for contribution readiness with parallel agents",
   "author": {
     "name": "minsoo.web",

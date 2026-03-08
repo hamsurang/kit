@@ -82,6 +82,8 @@ bash scripts/scaffold-plugin.sh
 | [gh-cli](./plugins/gh-cli) | Auto-invoked skill for working with GitHub from the command line using the gh CLI tool | [minsoo.web](https://github.com/minsoo-web) |
 | [personal-tutor](./plugins/personal-tutor) | Adaptive technical tutoring skill that builds a persistent knowledge graph and learner profile across sessions | [minsoo.web](https://github.com/minsoo-web) |
 | [deepwiki-cli](./plugins/deepwiki-cli) | Query GitHub repository wikis via DeepWiki CLI without MCP token overhead. | [minsoo.web](https://github.com/minsoo-web) |
+| [obsidian](./plugins/obsidian) | Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and Obsidian Headless | [minsoo.web](https://github.com/minsoo-web) |
+| [library-analyzer](./plugins/library-analyzer) | Analyze open-source libraries for contribution readiness with parallel agents | [minsoo.web](https://github.com/minsoo-web) |
 
 *Have a plugin to share? See [Contributing](docs/contributors/contributing.md).*
 
