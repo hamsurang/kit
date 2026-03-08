@@ -1,0 +1,12 @@
+{
+  "name": "library-analyzer",
+  "version": "1.0.0",
+  "description": "Analyze open-source libraries for contribution readiness with parallel agents",
+  "author": {
+    "name": "minsoo.web",
+    "github": "minsoo-web"
+  },
+  "license": "MIT",
+  "keywords": ["open-source", "contribution", "analysis", "library"],
+  "skills": "./skills/"
+}
