@@ -1,5 +1,17 @@
 # Auth, Search & API — Extended Reference
 
+## Installation
+
+```bash
+brew install gh                    # macOS
+sudo apt install gh                # Ubuntu/Debian
+winget install --id GitHub.cli    # Windows
+```
+
+See [cli.github.com](https://cli.github.com) for other platforms.
+
+---
+
 ## Authentication
 
 ### gh auth login

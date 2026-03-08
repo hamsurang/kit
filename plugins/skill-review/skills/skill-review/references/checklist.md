@@ -8,6 +8,7 @@ Derived from the Claude Agent Skills best practices. Run every check against the
 
 | Check | Severity | What to look for |
 |---|---|---|
+| YAML frontmatter is valid YAML syntax (parses without error, no duplicate keys, correct indentation) | ❌ Error | Invalid YAML prevents Claude from reading the skill metadata entirely |
 | Only `name` and `description` fields present | ⚠️ Warning | Extra fields (e.g. `version`, `license`) are ignored by Claude and signal authoring confusion |
 | Total frontmatter ≤ 1024 characters | ❌ Error | Longer frontmatter may be truncated; description becomes unreliable |
 | `name` uses only letters, numbers, and hyphens | ❌ Error | Parentheses, underscores, or special characters break skill lookup |
@@ -35,6 +36,8 @@ The description is how Claude decides whether to load a skill. It must be a prec
 
 ## 3. Naming Conventions
 
+> **Exception:** Tool-wrapper skills (e.g., vitest, gh-cli) may use the tool name directly. This is an accepted convention and not counted as a warning.
+
 | Check | Severity | What to look for |
 |---|---|---|
 | Name uses gerund (-ing) or descriptive verb form for process skills | ⚠️ Warning | `creating-skills` > `skill-creation`; `condition-based-waiting` > `async-test-helpers` |
@@ -61,6 +64,7 @@ The description is how Claude decides whether to load a skill. It must be a prec
 
 | Check | Severity | What to look for |
 |---|---|---|
+| All files linked from SKILL.md via markdown links or explicit Read instructions exist at the referenced path | ❌ Error | Broken references cause Claude to fail silently when trying to load context |
 | Heavy reference (100+ lines) is in `references/` not inline | ⚠️ Warning | Inline API docs bloat every invocation of the skill |
 | Nesting is at most one level deep (`references/topic.md`) | ⚠️ Warning | Deeper nesting (`references/a/b/c.md`) is hard to maintain and discover |
 | If the skill has ≥ 4 major sections, there is a table of contents | ⚠️ Warning | Long skills without a ToC are hard to navigate |

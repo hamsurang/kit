@@ -72,6 +72,12 @@ Announce what you will analyze:
 Collect data into a **context bundle** before launching any agents.
 Read `references/agent-prompts.md` at this point for the agent prompt templates.
 
+**Context size limits** — cap each field to keep total context under 15,000 characters:
+- `readme`: first 500 lines
+- `file_tree`: max 300 entries (top 3 directory levels)
+- `wiki_content` (URL mode): first 800 lines
+- Truncate with a note: `(truncated at N lines — full content available via direct access)`
+
 ### URL Mode (deepwiki-cli)
 
 ```bash
@@ -81,6 +87,11 @@ deepwiki-cli structure <owner/repo>
 # Get full wiki content
 deepwiki-cli read <owner/repo>
 ```
+
+**Map deepwiki-cli output to context bundle fields:**
+- `deepwiki-cli structure` output → `file_tree`
+- `deepwiki-cli read` output → split into `readme` (first section) + `wiki_content` (remainder)
+- If `deepwiki-cli ask` is used for specific questions → append answers to relevant fields
 
 ### Error Recovery (both modes)
 
@@ -187,6 +198,8 @@ directory listing, etc. If a field is `null`, replace the placeholder with:
 ---
 
 ## Step 4: Result Assembly
+
+Read `references/output-template.md` at this point for the report template.
 
 After all 3 agents return:
 

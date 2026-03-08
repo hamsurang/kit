@@ -1,6 +1,6 @@
 {
   "name": "personal-tutor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adaptive technical tutoring skill that builds a persistent knowledge graph and learner profile across sessions",
   "author": {
     "name": "minsoo.web",

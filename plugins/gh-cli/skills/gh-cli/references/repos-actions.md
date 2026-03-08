@@ -222,3 +222,30 @@ gh api repos/{owner}/{repo}/environments/production \
   --method PUT \
   --field wait_timer=5
 ```
+
+---
+
+## Releases
+
+```bash
+# List releases
+gh release list
+
+# View latest release
+gh release view
+
+# Create a release
+gh release create v1.2.0
+gh release create v1.2.0 --title "v1.2.0 — Dark Mode" --notes "Added dark mode support"
+gh release create v1.2.0 ./dist/*.tar.gz   # Attach assets
+gh release create v1.2.0 --draft           # Draft release
+gh release create v1.2.0 --prerelease      # Mark as pre-release
+gh release create v1.2.0 --generate-notes  # Auto-generate release notes
+
+# Upload additional assets to an existing release
+gh release upload v1.2.0 ./dist/app.zip
+
+# Edit / delete
+gh release edit v1.2.0 --title "v1.2.0 — Hotfix"
+gh release delete v1.2.0 --confirm
+```

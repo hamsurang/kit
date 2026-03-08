@@ -82,6 +82,8 @@ bash scripts/scaffold-plugin.sh
 | [gh-cli](./plugins/gh-cli) | gh CLI로 GitHub 작업을 수행할 때 자동으로 활성화되는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 | [personal-tutor](./plugins/personal-tutor) | 세션 간 학습자 프로필과 지식 그래프를 유지하는 적응형 기술 튜터링 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 | [deepwiki-cli](./plugins/deepwiki-cli) | MCP 토큰 오버헤드 없이 DeepWiki CLI로 GitHub 저장소 위키를 조회하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
+| [obsidian](./plugins/obsidian) | Obsidian 볼트에서 노트 검색, 생성, 편집, 정리 및 obsidian-cli와 Obsidian Headless를 통한 프론트매터 관리 | [minsoo.web](https://github.com/minsoo-web) |
+| [library-analyzer](./plugins/library-analyzer) | 병렬 에이전트를 활용하여 오픈소스 라이브러리의 기여 준비도를 분석하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 
 *플러그인을 기여하고 싶으신가요? [기여 방법](docs/contributors/contributing.md)을 확인하세요.*
 
