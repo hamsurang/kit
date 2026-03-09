@@ -84,8 +84,23 @@ bash scripts/scaffold-plugin.sh
 | [deepwiki-cli](./plugins/deepwiki-cli) | Query GitHub repository wikis via DeepWiki CLI without MCP token overhead. | [minsoo.web](https://github.com/minsoo-web) |
 | [obsidian](./plugins/obsidian) | Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and Obsidian Headless | [minsoo.web](https://github.com/minsoo-web) |
 | [library-analyzer](./plugins/library-analyzer) | Analyze open-source libraries for contribution readiness with parallel agents | [minsoo.web](https://github.com/minsoo-web) |
+| [obsidian-brain](./plugins/obsidian-brain) | Archive learnings from Claude Code sessions to Obsidian vault as Zettelkasten notes and use vault knowledge as conversational context | [minsoo.web](https://github.com/minsoo-web) |
 
 *Have a plugin to share? See [Contributing](docs/contributors/contributing.md).*
+
+---
+
+## Benchmark: deepwiki-cli vs DeepWiki MCP
+
+The `deepwiki-cli` plugin uses a Rust CLI binary instead of the MCP protocol, delivering significant token and time savings.
+
+![Benchmark Summary](docs/assets/benchmark/summary-en.png)
+
+![Token & Duration Charts](docs/assets/benchmark/charts-en.png)
+
+![Per-Eval Comparison](docs/assets/benchmark/table-en.png)
+
+> Tested with 3 queries (React Reconciler, Next.js App Router, Tokio Async Runtime). CLI approach uses a single `deepwiki-cli ask` Bash call; MCP approach performs the full 3-step protocol (initialize → tools/list → tools/call) via Streamable HTTP.
 
 ---
 
