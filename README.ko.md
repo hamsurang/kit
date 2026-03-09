@@ -84,8 +84,23 @@ bash scripts/scaffold-plugin.sh
 | [deepwiki-cli](./plugins/deepwiki-cli) | MCP 토큰 오버헤드 없이 DeepWiki CLI로 GitHub 저장소 위키를 조회하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 | [obsidian](./plugins/obsidian) | Obsidian 볼트에서 노트 검색, 생성, 편집, 정리 및 obsidian-cli와 Obsidian Headless를 통한 프론트매터 관리 | [minsoo.web](https://github.com/minsoo-web) |
 | [library-analyzer](./plugins/library-analyzer) | 병렬 에이전트를 활용하여 오픈소스 라이브러리의 기여 준비도를 분석하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
+| [obsidian-brain](./plugins/obsidian-brain) | Claude Code 세션의 학습 내용을 Obsidian 볼트에 제텔카스텐 노트로 아카이빙하고 볼트 지식을 대화 컨텍스트로 활용하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 
 *플러그인을 기여하고 싶으신가요? [기여 방법](docs/contributors/contributing.md)을 확인하세요.*
+
+---
+
+## 벤치마크: deepwiki-cli vs DeepWiki MCP
+
+`deepwiki-cli` 플러그인은 MCP 프로토콜 대신 Rust CLI 바이너리를 사용하여 토큰과 시간을 크게 절약합니다.
+
+![벤치마크 요약](docs/assets/benchmark/summary-ko.png)
+
+![토큰 & 소요시간 차트](docs/assets/benchmark/charts-ko.png)
+
+![평가별 상세 비교](docs/assets/benchmark/table-ko.png)
+
+> 3개 쿼리(React Reconciler, Next.js App Router, Tokio Async Runtime)로 테스트. CLI 방식은 단일 `deepwiki-cli ask` Bash 호출을 사용하고, MCP 방식은 Streamable HTTP를 통한 3단계 프로토콜(initialize → tools/list → tools/call)을 수행합니다.
 
 ---
 
