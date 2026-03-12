@@ -85,6 +85,7 @@ bash scripts/scaffold-plugin.sh
 | [obsidian](./plugins/obsidian) | Work with Obsidian vaults — search, create, edit, organize notes and manage frontmatter via obsidian-cli and Obsidian Headless | [minsoo.web](https://github.com/minsoo-web) |
 | [library-analyzer](./plugins/library-analyzer) | Analyze open-source libraries for contribution readiness with parallel agents | [minsoo.web](https://github.com/minsoo-web) |
 | [obsidian-brain](./plugins/obsidian-brain) | Archive learnings from Claude Code sessions to Obsidian vault as Zettelkasten notes and use vault knowledge as conversational context | [minsoo.web](https://github.com/minsoo-web) |
+| [velog-cli](./plugins/velog-cli) | Manage velog.io blog posts from the terminal — create, edit, publish, and browse posts via the velog CLI | [minsoo.web](https://github.com/minsoo-web) |
 
 *Have a plugin to share? See [Contributing](docs/contributors/contributing.md).*
 

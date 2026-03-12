@@ -1,7 +1,7 @@
 {
   "name": "kit",
   "description": "Community plugin & skills marketplace for Claude Code",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "owner": {
     "name": "hamsurang",
     "email": "zlemzlem5656@naver.com"
@@ -46,6 +46,11 @@
       "name": "obsidian-brain",
       "source": "./plugins/obsidian-brain",
       "description": "Archive learnings from Claude Code sessions to Obsidian vault as Zettelkasten notes and use vault knowledge as conversational context"
+    },
+    {
+      "name": "velog-cli",
+      "source": "./plugins/velog-cli",
+      "description": "Manage velog.io blog posts from the terminal — create, edit, publish, and browse posts via the velog CLI"
     }
   ]
 }

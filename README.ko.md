@@ -85,6 +85,7 @@ bash scripts/scaffold-plugin.sh
 | [obsidian](./plugins/obsidian) | Obsidian 볼트에서 노트 검색, 생성, 편집, 정리 및 obsidian-cli와 Obsidian Headless를 통한 프론트매터 관리 | [minsoo.web](https://github.com/minsoo-web) |
 | [library-analyzer](./plugins/library-analyzer) | 병렬 에이전트를 활용하여 오픈소스 라이브러리의 기여 준비도를 분석하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 | [obsidian-brain](./plugins/obsidian-brain) | Claude Code 세션의 학습 내용을 Obsidian 볼트에 제텔카스텐 노트로 아카이빙하고 볼트 지식을 대화 컨텍스트로 활용하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
+| [velog-cli](./plugins/velog-cli) | 터미널에서 velog.io 블로그 포스트를 관리 — velog CLI로 글 작성, 수정, 퍼블리시, 트렌딩 조회 | [minsoo.web](https://github.com/minsoo-web) |
 
 *플러그인을 기여하고 싶으신가요? [기여 방법](docs/contributors/contributing.md)을 확인하세요.*
 
