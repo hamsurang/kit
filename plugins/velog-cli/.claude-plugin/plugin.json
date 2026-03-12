@@ -1,0 +1,13 @@
+{
+  "name": "velog-cli",
+  "version": "1.0.0",
+  "description": "Manage velog.io blog posts from the terminal — create, edit, publish, and browse posts via the velog CLI.",
+  "author": {
+    "name": "minsoo.web",
+    "github": "minsoo-web"
+  },
+  "license": "MIT",
+  "keywords": ["velog", "blog", "publishing", "markdown", "cli"],
+  "repository": "https://github.com/hamsurang/velog-cli",
+  "skills": "./skills/"
+}
