@@ -86,6 +86,7 @@ bash scripts/scaffold-plugin.sh
 | [library-analyzer](./plugins/library-analyzer) | Analyze open-source libraries for contribution readiness with parallel agents | [minsoo.web](https://github.com/minsoo-web) |
 | [obsidian-brain](./plugins/obsidian-brain) | Archive learnings from Claude Code sessions to Obsidian vault as Zettelkasten notes and use vault knowledge as conversational context | [minsoo.web](https://github.com/minsoo-web) |
 | [velog-cli](./plugins/velog-cli) | Manage velog.io blog posts from the terminal — create, edit, publish, and browse posts via the velog CLI | [minsoo.web](https://github.com/minsoo-web) |
+| [hamsurang-slide](./plugins/hamsurang-slide) | Hamsurang brand HTML presentation generator. Soft Modern design with light/dark themes, 14 slide types, 4-color code highlighting. | [Sonny](https://github.com/sonsurim) |
 
 *Have a plugin to share? See [Contributing](docs/contributors/contributing.md).*
 
