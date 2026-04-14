@@ -24,7 +24,6 @@ Or copy `plugins/hamsurang-slide/` into your project. Pi auto-detects `.claude-p
 
 - `hamsurang 발표` / `hamsurang PPT` / `hamsurang slide`
 - `함수랑 발표` / `함수랑 슬라이드` / `함수랑 PPT`
-- `hamba 발표` / `hamba slide`
 
 ## Workflow
 

@@ -1,6 +1,6 @@
 ---
 name: hamsurang-slide
-description: "Use when the user mentions 'hamsurang presentation', 'hamsurang PPT', 'hamsurang slide', 'hamba presentation', '함수랑 발표', '함수랑 슬라이드', '함수랑 PPT', 'hamsurang 발표', 'hamba 발표', or any presentation request in a Hamsurang (함수랑산악회) context — even if they don't explicitly say 'slide'."
+description: "Use when the user mentions 'hamsurang presentation', 'hamsurang PPT', 'hamsurang slide', '함수랑 발표', '함수랑 슬라이드', '함수랑 PPT', 'hamsurang 발표', or any presentation request in a Hamsurang (함수랑산악회) context — even if they don't explicitly say 'slide'."
 ---
 
 # hamsurang-slide — Hamsurang HTML Presentation Generator
@@ -15,7 +15,6 @@ Output is always a single `.html` file — opens directly in a browser.
 
 Activate when the request matches any of:
 - "hamsurang 발표", "hamsurang PPT", "hamsurang slide"
-- "hamba 발표", "hamba slide"
 - "함수랑 발표", "함수랑 슬라이드", "함수랑 PPT"
 - Any mention of "presentation", "slide", or "PPT" in a Hamsurang context
 
