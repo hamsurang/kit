@@ -1,0 +1,12 @@
+{
+  "name": "hamsurang-slide",
+  "version": "1.0.0",
+  "description": "Hamsurang brand HTML presentation generator. Soft Modern design with light/dark themes, 14 slide types, 4-color code highlighting.",
+  "author": {
+    "name": "Sonny",
+    "github": "sonsurim"
+  },
+  "license": "MIT",
+  "keywords": ["hamsurang", "slide", "presentation", "soft-modern", "PPT"],
+  "skills": "./skills/"
+}

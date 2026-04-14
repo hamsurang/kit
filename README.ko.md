@@ -86,6 +86,7 @@ bash scripts/scaffold-plugin.sh
 | [library-analyzer](./plugins/library-analyzer) | 병렬 에이전트를 활용하여 오픈소스 라이브러리의 기여 준비도를 분석하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 | [obsidian-brain](./plugins/obsidian-brain) | Claude Code 세션의 학습 내용을 Obsidian 볼트에 제텔카스텐 노트로 아카이빙하고 볼트 지식을 대화 컨텍스트로 활용하는 스킬 | [minsoo.web](https://github.com/minsoo-web) |
 | [velog-cli](./plugins/velog-cli) | 터미널에서 velog.io 블로그 포스트를 관리 — velog CLI로 글 작성, 수정, 퍼블리시, 트렌딩 조회 | [minsoo.web](https://github.com/minsoo-web) |
+| [hamsurang-slide](./plugins/hamsurang-slide) | 함수랑 브랜드 HTML 프레젠테이션 생성기. Soft Modern 디자인, 라이트/다크 테마, 14가지 슬라이드 타입, 4색 코드 하이라이팅 | [Sonny](https://github.com/sonsurim) |
 
 *플러그인을 기여하고 싶으신가요? [기여 방법](docs/contributors/contributing.md)을 확인하세요.*
 
