@@ -108,12 +108,12 @@ Add `data-notes` attribute to each slide:
 
 ### Step 6: Inline Assets & Save
 
-Requires Python 3.7+ (standard library only — no pip packages).
+Requires Node.js.
 
 1. Save `index.html` (or requested filename) to the user's working directory
-2. Run `scripts/inline_assets.py`:
+2. Run `scripts/inline_assets.mjs`:
    ```
-   python3 <skill_dir>/scripts/inline_assets.py <output.html> <skill_dir>/references/images/
+   node <skill_dir>/scripts/inline_assets.mjs <output.html> <skill_dir>/references/images/
    ```
 3. Tell the user: "Open directly in your browser."
 

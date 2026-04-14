@@ -49,7 +49,7 @@ plugins/hamsurang-slide/
     │   ├── html-spec.md           (HTML structure, JS, CDN)
     │   └── images/                (SVG brand assets)
     └── scripts/
-        └── inline_assets.py
+        └── inline_assets.mjs
 ```
 
 ### SSOT Principle
@@ -58,7 +58,7 @@ plugins/hamsurang-slide/
 
 ## Requirements
 
-- Python 3.7+ (for `inline_assets.py`)
+- Node.js
 
 ## License
 
