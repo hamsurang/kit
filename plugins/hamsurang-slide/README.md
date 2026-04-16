@@ -8,7 +8,7 @@
 ![light theme](../../docs/assets/hamsurang-slide/images/light.png)
 
 
-[-> Go to sample-light.html](../../docs/assets/hamsurang-slide/html/sample-light.html)
+[Go to sample-light.html](https://hamsurang.github.io/kit/assets/hamsurang-slide/html/sample-light.html)
 
 
 
@@ -16,7 +16,7 @@
 
 ![dark theme](../../docs/assets/hamsurang-slide/images/dark.png)
 
-[-> Go to sample-dark.html](../../docs/assets/hamsurang-slide/html/sample-dark.html)
+[Go to sample-dark.html](https://hamsurang.github.io/kit/assets/hamsurang-slide/html/sample-dark.html)
 
 
 ## Features
