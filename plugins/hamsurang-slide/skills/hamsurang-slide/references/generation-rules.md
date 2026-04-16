@@ -82,14 +82,14 @@ No other file contains implementable style values.
 
 body {
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  background: #000;
+  background: var(--background);
   overflow: hidden;
 }
 
 .presentation {
   width: 100vw; height: 100vh;
   display: flex; align-items: center; justify-content: center;
-  background: #000; overflow: hidden;
+  background: var(--background); overflow: hidden;
 }
 
 .slides-container {
@@ -327,6 +327,7 @@ ul li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; backgr
 
 ```css
 @media print {
+  html, body { overflow: visible !important; height: auto !important; background: #fff !important; }
   .controls, .progress-bar, .slide-counter { display: none !important; }
   .presentation { background: none; width: auto; height: auto; overflow: visible; display: block; }
   .slides-container { width: auto; height: auto; overflow: visible; transform: none !important; display: block; }
@@ -337,9 +338,30 @@ ul li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; backgr
     pointer-events: auto !important;
     page-break-after: always; break-after: page;
     animation: none !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   .slide:last-child { page-break-after: auto; break-after: auto; }
-  @page { size: 1280px 720px landscape; margin: 0; }
+  /* Reset animation opacity — .a elements start at opacity:0 and animate in;
+     in print mode animations don't run, so force them visible */
+  .slide .a { opacity: 1 !important; animation: none !important; transform: none !important; }
+  /* Glassmorphism cards: backdrop-filter not supported in print.
+     Without it, dark-theme cards (rgba background at 6% opacity) become invisible */
+  /* Explicit print-color-adjust on cards (not just inherited from .slide) ensures backgrounds print.
+     Light theme: #f7faf9 instead of white to differentiate from the #ffffff slide background.
+     Dark theme: #1a2d25 (visibly lighter than slide #0c1410) for clear card distinction. */
+  .card, .flow .step, .versus .panel { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .card, .flow .step { background: #f7faf9 !important; border-color: rgba(0,153,114,0.25) !important; }
+  .versus .panel.good { background: #f0faf7 !important; border-color: rgba(0,153,114,0.35) !important; }
+  .versus .panel.bad { background: #fff5f5 !important; border-color: rgba(239,68,68,0.35) !important; }
+  [data-theme="dark"] .card,
+  [data-theme="dark"] .flow .step { background: #1a2d25 !important; border-color: rgba(0,153,114,0.40) !important; }
+  /* Versus panels need separate rules — bad panel must stay red, not green */
+  [data-theme="dark"] .versus .panel.good { background: #0e1f1a !important; border-color: rgba(0,153,114,0.45) !important; }
+  [data-theme="dark"] .versus .panel.bad { background: #1f0e0e !important; border-color: rgba(248,113,113,0.45) !important; }
+  /* Section Divider underline bar: print strips opacity-based stacking contexts, pushing
+     z-index:-1 behind the slide background. Reset z-index and force background to print */
+  .slide--section-divider h2::after { z-index: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; background: rgba(0,153,114,0.45) !important; }
+  @page { size: 1280px 720px; margin: 0; }
 }
 ```
 

@@ -2,6 +2,23 @@
 
 > Brand presentation generator for Hamsurang (함수랑산악회) with Soft Modern design.
 
+## Themes
+
+**Light theme**
+![light theme](../../docs/assets/hamsurang-slide/images/light.png)
+
+
+[-> Go to sample-light.html](../../docs/assets/hamsurang-slide/html/sample-light.html)
+
+
+
+**Dark theme**
+
+![dark theme](../../docs/assets/hamsurang-slide/images/dark.png)
+
+[-> Go to sample-dark.html](../../docs/assets/hamsurang-slide/html/sample-dark.html)
+
+
 ## Features
 
 - **Soft Modern** design — glassmorphism cards, green-tinted gradients, soft shadows
