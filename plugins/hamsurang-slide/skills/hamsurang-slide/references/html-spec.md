@@ -47,6 +47,14 @@ Do not include highlight.js stylesheet — the custom theme override in generati
   </style>
 </head>
 <body>
+  <noscript>
+    <style>
+      body { background: #fff !important; overflow: visible !important; }
+      .presentation { background: #fff !important; width: auto !important; height: auto !important; overflow: visible !important; display: block !important; }
+      .slides-container { width: 1280px; height: auto !important; overflow: visible !important; transform: none !important; display: block !important; }
+      .slide { position: relative !important; opacity: 1 !important; transform: none !important; display: flex !important; width: 1280px; height: 720px; margin-bottom: 20px; }
+    </style>
+  </noscript>
   <div class="presentation">
     <div class="progress-bar"></div>
     <div class="slides-container">
@@ -164,7 +172,7 @@ if (typeof mermaid !== 'undefined') {
   const theme = document.documentElement.getAttribute('data-theme');
   mermaid.initialize({
     startOnLoad: false,
-    theme: theme === 'dark' ? 'dark' : 'default',
+    theme: 'base',
     securityLevel: 'loose',
     themeVariables: theme === 'dark' ? {
       primaryColor: '#1a3a2e',
@@ -177,7 +185,18 @@ if (typeof mermaid !== 'undefined') {
       mainBkg: '#1a3a2e',
       nodeTextColor: '#e0e0e0',
       edgeLabelBackground: '#0c1410'
-    } : {}
+    } : {
+      primaryColor: '#f7faf9',
+      primaryTextColor: '#111111',
+      primaryBorderColor: '#009972',
+      lineColor: '#009972',
+      secondaryColor: '#f7faf9',
+      tertiaryColor: '#f7faf9',
+      nodeBorder: '#009972',
+      mainBkg: '#f7faf9',
+      nodeTextColor: '#111111',
+      edgeLabelBackground: '#ffffff'
+    }
   });
 
   async function renderMermaid() {
@@ -203,10 +222,11 @@ if (typeof mermaid !== 'undefined') {
 Print rules are defined in generation-rules.md §11.
 
 Browser print (`Ctrl+P`) for PDF export:
+- Overrides `body` background to white and `overflow` to visible
 - Hides controls, progress bar, counter
-- Reflows all slides to visible
+- Reflows all slides to visible with `print-color-adjust: exact`
 - Page-break per slide
-- 1280×720 landscape page size
+- 1280×720 page size (`@page { size: 1280px 720px }` — do not add `landscape`; combining custom lengths with an orientation keyword makes browsers ignore the entire `size` declaration)
 
 ## 8. Accessibility
 
