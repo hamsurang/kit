@@ -32,8 +32,8 @@ For each topic, Claude maintains a knowledge graph in `~/.claude/learning/topics
 | Status | Meaning |
 |--------|---------|
 | `gap` | Not yet learned |
-| `partial` | Learned, passed quiz this session |
-| `understood` | Passed quiz in a later session without hints |
+| `partial` | Warm-quiz passed this session (working-memory echo possible) |
+| `understood` | Cold-quiz passed in a later session without hints (true cross-session retrieval) |
 
 Depth is tracked using Bloom's Taxonomy: `recall → apply → explain`
 
@@ -51,25 +51,31 @@ Learner profile is **never written without your explicit confirmation**.
 ```
 Socratic Diagnostic (first session only)
   ↓
-Agenda: 1–2 new concepts + 1 review
+Cold Quiz Sweep (Phase 2.0 — only if cold-pending nodes exist)
   ↓
-Teaching: explain → Socratic Q&A → check understanding
+Agenda: 1–2 new concepts + 1 review (cap=1 when cold-pending exists)
   ↓
-Quiz: Feynman / Apply / Analyze (rotate)
+Teaching: predict → explain (compare to guess) → Socratic Q&A → check
   ↓
-Archive: update graph + session log + confirm learner profile update
+Warm Quiz: Feynman / Apply / Analyze (gap → partial only)
+  ↓
+Archive: update graph + session log + self-audit + confirm profile
 ```
+
+`partial → understood` only via Phase 2.0 cold quiz (no-hint pass) or review-slot escape valve — never within the same session a concept was first taught (Iron Rule #6).
 
 ### Applied Learning Science
 
 | Principle | Where applied |
 |-----------|--------------|
-| Bloom's Taxonomy | Node depth tracking |
+| Bloom's Taxonomy | Node depth tracking; deterministic format rotation (Feynman → Apply → Analyze) |
 | Zone of Proximal Development | Prerequisites gate concept unlock |
-| Retrieval Practice | Quiz required every session |
+| Retrieval Practice | Cold quiz (Phase 2.0) gates `understood`; warm quiz seeds `partial` |
+| Generation Effect | Phase 3 Predict step before Explain |
+| Desirable Difficulty | Cold quiz across sessions; format rotation pass-only; no re-teaching before retrieval |
 | Feynman Technique | One of three quiz formats |
-| Spaced Repetition | Two-session validation for `understood` |
-| Cognitive Load Theory | Max 2 new concepts per session |
+| Spaced Repetition | Cold quiz next session + 30-day staleness check |
+| Cognitive Load Theory | Max 2 new concepts per session; cap=1 when cold-pending exists |
 
 ## Storage Structure
 
