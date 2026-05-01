@@ -33,7 +33,7 @@ For each topic, Claude maintains a knowledge graph in `~/.claude/learning/topics
 |--------|---------|
 | `gap` | Not yet learned |
 | `partial` | Warm-quiz passed this session (working-memory echo possible) |
-| `understood` | Cold-quiz passed in a later session without hints (true cross-session retrieval) |
+| `understood` | Cold-quiz passed in a later session without hints (path A — primary), or review-slot warm-quiz passed without hints after a prior cold attempt (path B — escape valve) |
 
 Depth is tracked using Bloom's Taxonomy: `recall → apply → explain`
 

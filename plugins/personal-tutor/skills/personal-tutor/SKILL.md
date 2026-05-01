@@ -75,7 +75,7 @@ See Phase 5 Step 1 (Upgrade rules + Cold-quiz pending update) for the canonical 
 - Cold pass (hint used) → status `partial`, `pending: yes` retained, `Last quiz format` updated, history `cold: passed (hint used)`. Counts toward 3-strike streak.
 - Cold fail → status `partial`, `pending: yes` retained, **`Last quiz format` NOT updated**, history `cold: failed`. Counts toward both 2-fail and 3-strike streaks.
 
-After Phase 2.0 completes (success, partial, or all fail), proceed to Phase 2 with knowledge of the remaining pending count for cap decisions.
+After Phase 2.0 completes (success, partial, or all fail), proceed to Phase 2. The cap decision was already fixed at session start (based on whether *any* node had `Cold quiz pending: yes` then); the remaining pending count only feeds the agenda announcement.
 
 ### First session
 First sessions have no prior session, so no node can have `Cold quiz pending: yes`. Phase 2.0 does not fire. New-concept warm-passes during the first session set `Cold quiz pending: yes` for the *next* session's Phase 2.0.
@@ -113,7 +113,7 @@ Loop for **each new concept** in agenda (review nodes follow a separate flow —
 3. **Socratic Q&A** — ask questions to deepen understanding, don't just lecture.
 4. **Check**: "Does this make sense? Any questions?"
 
-**Review nodes** (oldest partial revisit, see Phase 2): skip the Predict step. Re-teach with analogy or code example, then Socratic Q&A. The review slot's job is reinforcement and retrieval, not generation.
+**Review nodes** (oldest partial revisit, see Phase 2): skip the Predict step. Re-teach with analogy or code example, then Socratic Q&A, then proceed to Phase 4 for a warm quiz on the review node (this is what feeds Phase 5 path B). The review slot's job is reinforcement and retrieval, not generation.
 
 **Strategic hint definition**: minimum information that nudges the learner without disclosing the answer. Examples: "this keyword pairs with `borrow`" (✓ category cue), "starts with the letter L" (✓ tiny scaffold). Anti-examples: "the answer is lifetime" (✗ direct), "lifetimes track how long a reference is valid" (✗ too much structure).
 
@@ -128,9 +128,9 @@ If stuck or confused (any concept type):
 
 ## Phase 4: Warm Quiz
 
-This is the **same-session retrieval** step. Pass effect is capped at `gap → partial` — Phase 4 alone cannot upgrade a node to `understood`. The cross-session "verification" role lives in **Phase 2.0: Cold Quiz Sweep**.
+This is the **same-session retrieval** step. New-concept pass effect is capped at `gap → partial` — Phase 4 alone cannot upgrade a `gap` to `understood`. The cross-session "verification" role lives in **Phase 2.0: Cold Quiz Sweep**. The one exception is review-slot warm quiz, which feeds Phase 5 path B (review-slot escape valve) — see below.
 
-Run one warm quiz per new concept taught this session. Do NOT skip. Choose format from the rotation table:
+Run one warm quiz per **new concept AND per review-slot node** taught this session. Do NOT skip. Choose format from the rotation table:
 
 | Format | Prompt style | Tests |
 |--------|-------------|-------|
@@ -138,17 +138,23 @@ Run one warm quiz per new concept taught this session. Do NOT skip. Choose forma
 | **Apply** | "What's wrong with this code?" + [code snippet] | Application |
 | **Analyze** | "Why was this designed this way?" | Deep understanding |
 
+**Format selection by node role:**
+- New concept (just taught in Phase 3): pick any format from the table — Feynman is the default starting format unless context suggests otherwise.
+- Review-slot node (already `partial`): use the rotation rule from Phase 2.0 against the node's `Last quiz format`. This keeps escalation discipline consistent across cold and review tracks.
+
 **Track hint usage:** Did you give any hints during the quiz? Note it.
 - No hints → record `warm: passed (no hint)` in quiz history
 - Hints given → record `warm: passed (hint used)` in quiz history
-- Failed → record `warm: failed` in quiz history (status stays `gap`; agenda re-pick handles next session)
+- Failed → record `warm: failed` in quiz history (new-concept fail: status stays `gap`; review-slot fail: status stays `partial`, may trigger Phase 5 downgrade rules)
 
-**Cold-quiz scheduling (R5 — sole scheduler).** On any warm-pass of a new concept (hint or no hint):
+**Cold-quiz scheduling (R5 — sole scheduler).** On any warm-pass of a **new concept** (hint or no hint):
 - Set `Cold quiz pending: yes` on the node.
 - Set `Last quiz format` to the format used (e.g., `feynman`).
-This schedules the node for next-session Phase 2.0 cold quiz, the only path to `understood`. R9 (hint-pass forcing rule) is automatically satisfied; no-hint passes are also scheduled because cold quiz is the sole upgrade gate.
+This schedules the node for next-session Phase 2.0 cold quiz, the only path to `understood` for nodes that have never been cold-quizzed. R9 (hint-pass forcing rule) is automatically satisfied; no-hint passes are also scheduled because cold quiz is the sole upgrade gate.
 
-**Warm-fail nodes do NOT get `Cold quiz pending: yes`** — they remain `gap` and re-enter via standard agenda re-pick.
+**Review-slot warm passes do NOT trigger R5** — review nodes are already `partial` and either have prior cold-quiz history (path B candidate, see Phase 5) or carry over their existing `Cold quiz pending` state from prior sessions. Update `Last quiz format` on review-slot pass; do NOT update on review-slot fail (same fail-rule as Phase 2.0).
+
+**Warm-fail nodes (new-concept) do NOT get `Cold quiz pending: yes`** — they remain `gap` and re-enter via standard agenda re-pick.
 
 ## Phase 5: Archive
 
